@@ -1,22 +1,21 @@
 {
-  "name": "aiqa/dataset-generator-lib",
-  "description": "Dataset generator library",
-  "homepage": "https://github.com/aiqa/dataset-generator-lib",
-  "type": "library",
-  "license": "MIT",
-
-  "require": {
-    "php": ">=7.1"
-  },
-
-  "autoload": {
-    "psr-4": {
-      "": "src/"
+    "name": "aiqa/dataset-generator-lib",
+    "description": "Dataset generator library",
+    "homepage": "https://github.com/aiqa/dataset-generator-lib",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
     }
-  },
-
-  "config": {
-    "bin-dir": "bin"
-  }
-
 }
