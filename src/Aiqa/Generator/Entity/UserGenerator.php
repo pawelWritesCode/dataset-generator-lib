@@ -49,7 +49,7 @@ class UserGenerator implements RandomDataGeneratorInterface
 
         $result['username'] = $result['email'];
 
-        $result['password'] = 'somepass';
+        $result['password'] = 'Somepass123';
 
         $result['enabled'] = true;
 
