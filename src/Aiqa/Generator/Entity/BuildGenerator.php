@@ -11,6 +11,10 @@ use Aiqa\Generator\Base\UsernameGenerator;
 use Aiqa\Generator\Base\EmailGenerator;
 use joshtronic\LoremIpsum;
 
+/**
+ * Class BuildGenerator - generates build.
+ * @package Aiqa\Generator\Entity
+ */
 class BuildGenerator implements RandomDataGeneratorInterface
 {
     /**
@@ -38,6 +42,13 @@ class BuildGenerator implements RandomDataGeneratorInterface
      */
     private $testStatusGenerator;
 
+    /**
+     * BuildGenerator constructor.
+     * @param UsernameGenerator $usernameGenerator
+     * @param EmailGenerator $emailGenerator
+     * @param DateGenerator $dateGenerator
+     * @param TestStatusGenerator $testStatusGenerator
+     */
     public function __construct(
         UsernameGenerator $usernameGenerator,
         EmailGenerator $emailGenerator,
