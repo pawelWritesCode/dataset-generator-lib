@@ -97,6 +97,10 @@ class BuildGenerator implements RandomDataGeneratorInterface
             $data['featBranch'] :
             $this->loremIpsumGenerator->words(1);
 
+        $result['fullSet'] = isset($data['fullSet']) ?
+            intval($data['fullSet']) :
+            random_int(0,1);
+
         return $result;
     }
 }
