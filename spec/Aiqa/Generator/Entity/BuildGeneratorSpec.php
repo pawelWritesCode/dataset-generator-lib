@@ -41,6 +41,7 @@ class BuildGeneratorSpec extends ObjectBehavior
         $this->getRandom()->shouldHaveKey('status');
         $this->getRandom()->shouldHaveKey('baseBranch');
         $this->getRandom()->shouldHaveKey('featBranch');
+        $this->getRandom()->shouldHaveKey('fullSet');
     }
 
     function it_should_return_modified() {
@@ -52,17 +53,28 @@ class BuildGeneratorSpec extends ObjectBehavior
             'email' => 'a@b.c',
             'status' => 20,
             'baseBranch' => 'a',
-            'featBranch' => 'z'
+            'featBranch' => 'z',
+            'fullSet' => 1
+        ];
+
+        $this->getRandom($data)->shouldBeLike($data);
+    }
+
+    function it_should_modify_some_fields_only() {
+        $data = [
+            'hashBaseBranch' => 'a',
+            'hashFeatBranch' => 'b',
         ];
 
         $this->getRandom($data)->shouldBeArray();
         $this->getRandom($data)->shouldHaveKeyWithValue('hashBaseBranch', 'a');
         $this->getRandom($data)->shouldHaveKeyWithValue('hashFeatBranch', 'b');
-        $this->getRandom($data)->shouldHaveKeyWithValue('start', '0000-00-00');
-        $this->getRandom($data)->shouldHaveKeyWithValue('stop', '1111-11-11');
-        $this->getRandom($data)->shouldHaveKeyWithValue('email', 'a@b.c');
-        $this->getRandom($data)->shouldHaveKeyWithValue('status', 20);
-        $this->getRandom($data)->shouldHaveKeyWithValue('baseBranch', 'a');
-        $this->getRandom($data)->shouldHaveKeyWithValue('featBranch', 'z');
+        $this->getRandom($data)->shouldHaveKey('start');
+        $this->getRandom($data)->shouldHaveKey('stop');
+        $this->getRandom($data)->shouldHaveKey('email');
+        $this->getRandom($data)->shouldHaveKey('status');
+        $this->getRandom($data)->shouldHaveKey('baseBranch');
+        $this->getRandom($data)->shouldHaveKey('featBranch');
+        $this->getRandom($data)->shouldHaveKey('fullSet');
     }
 }

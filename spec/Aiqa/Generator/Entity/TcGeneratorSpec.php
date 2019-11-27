@@ -2,20 +2,26 @@
 
 namespace spec\Aiqa\Generator\Entity;
 
-use Aiqa\Generator\Entity\Tc;
+use Aiqa\Generator\Base\ExtensionGenerator;
+use Aiqa\Generator\Entity\TcGenerator;
 use Aiqa\Generator\RandomDataGeneratorInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class TcSpec extends ObjectBehavior
+class TcGeneratorSpec extends ObjectBehavior
 {
+    function let(ExtensionGenerator $extensionGenerator) {
+        $this->beConstructedWith($extensionGenerator);
+    }
+
     function it_is_initializable()
     {
         $this->shouldImplement(RandomDataGeneratorInterface::class);
-        $this->shouldHaveType(Tc::class);
+        $this->shouldHaveType(TcGenerator::class);
     }
 
-    function it_should_generate_random() {
+    function it_should_generate_random(ExtensionGenerator $extensionGenerator) {
+        $extensionGenerator->getRandom()->willReturn('.feature');
         $this->getRandom()->shouldBeArray();
         $this->getRandom()->shouldHaveKey('fileName');
     }
